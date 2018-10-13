@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="com.rcp.mail.project.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="com.rcp.mail.project.Perspective"
+            id="com.ram.mail.project.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="Message"
+            allowMultiple="true"
+            icon="icons/sample2.gif"
+            class="com.rcp.mail.project.View"
+            id="com.ram.mail.project.view">
+      </view>
+      <view
+            allowMultiple="false"
+            class="com.rcp.mail.project.Navigator"
+            icon="icons/email_go.png"
+            id="com.ram.mail.project.mailbox"
+            name="Mail Box"
+            restorable="true">
+      </view>
+      <view
+            class="com.rcp.mail.project.NavigationViewNew"
+            icon="icons/server.png"
+            id="com.ram.mail.project.simplenavigateview"
+            name="Navigation"
+            restorable="true">
+      </view>
+      <view
+            class="com.rcp.mail.project.MessageTableView"
+            icon="icons/email_open.png"
+            id="com.ram.mail.project.MessageTableView"
+            name="Messages"
+            restorable="true">
+      </view>
+      <view
+            class="com.rcp.mail.project.MessageView"
+            icon="icons/email_edit.png"
+            id="com.ram.mail.project.view"
+            name="Message"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Mail"
+            id="com.ram.mail.project.category">
+      </category>
+      <command
+            name="Open Mailbox"
+            description="Opens a mailbox"
+            categoryId="com.ram.mail.project.category"
+            id="com.ram.mail.project.open">
+      </command>
+      <command
+            name="Open Message Dialog"
+            description="Open a message dialog"
+            categoryId="com.ram.mail.project.category"
+            id="com.ram.mail.project.openMessage">
+      </command>
+      <command
+            categoryId="rcpmail.category"
+            defaultHandler="com.rcp.mailproject.handler.CreateServerHandler"
+            description="Create New Server"
+            id="com.ram.mail.project.command.createserver"
+            name="New Server">
+      </command>
+      <command
+            defaultHandler="com.rcp.mailproject.handler.ExitHandler"
+            id="com.ram.mail.project.command.exit"
+            name="Exit">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.ram.mail.project.command.createserver"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+SHIFT+N">
+      </key>
+      <key
+            commandId="com.ram.mail.project.command.exit"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+Q">
+      </key>
+      <key
+            commandId="com.ram.mail.project.command.newWindow"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+SHIFT+O">
+      </key>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.rcp.mail.project.application"
+            name="RCP Mail Product">
+         <property
+               name="aboutText"
+               value="RCP Mail template created by PDE">
+         </property>
+         <property
+               name="windowImages"
+               value="icons/sample2.gif">
+         </property>
+         <property
+               name="aboutImage"
+               value="product_lg.gif">
+         </property>
+         <property
+               name="appName"
+               value="RCP Mail Product">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="fileMenu"
+               label="&amp;File">
+            <command
+                  commandId="com.ram.mail.project.command.newWindow"
+                  icon="icons/application_form_add.png"
+                  label="New &amp;Window"
+                  style="push">
+            </command>
+            <separator
+                  name="mail.project.separator1"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="com.ram.mail.project.command.createserver"
+                  icon="icons/server_add.png"
+                  label="New &amp;Server"
+                  style="push">
+            </command>
+            <separator
+                  name="mail.project.separator2"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="com.ram.mail.project.command.exit"
+                  label="Exit"
+                  mnemonic="X"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="com.ram.mail.project.toolbar">
+            <command
+                  commandId="com.ram.mail.project.command.createserver"
+                  icon="icons/server_add.png"
+                  label="New&amp;Server"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.ram.mail.project.command.newWindow"
+                  icon="icons/application_form_add.png"
+                  label="New Window"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.ram.mail.project.synchronize"
+                  icon="icons/arrow_refresh.png"
+                  label="Synchronize"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.ui.edit.delete"
+                  icon="icons/email_delete.png"
+                  label="Delete"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.ram.mail.project.command.spam"
+                  icon="icons/bug_add.png"
+                  label="Mark As Spam And Move"
+                  style="push">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>

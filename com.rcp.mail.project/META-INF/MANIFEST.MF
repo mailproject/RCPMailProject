@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Project
+Bundle-SymbolicName: com.rcp.mail.project;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.rcp.mail.project.Activator
+Bundle-Vendor: RAM
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.navigator,
+ org.eclipse.jface.databinding,
+ org.eclipse.core.databinding.observable,
+ org.eclipse.core.databinding.beans,
+ org.eclipse.core.databinding.property,
+ org.eclipse.core.databinding
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
