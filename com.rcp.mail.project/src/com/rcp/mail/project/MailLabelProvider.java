@@ -45,7 +45,7 @@ final class MailLabelProvider extends ObservableMapLabelProvider {
 
 	private ImageDescriptor getDescriptor(String fileName) {
 		return AbstractUIPlugin.imageDescriptorFromPlugin(Application.PLUGIN_ID,
-				"icons/silk/" + fileName);
+				"icons/" + fileName);
 	}
 	
 	// We have to override getText because the model is not homogeneous.
